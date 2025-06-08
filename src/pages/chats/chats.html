@@ -1,0 +1,36 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
+    <title>{{pageName}}</title>
+    <script type="module" src="./chats.js"></script>
+</head>
+<body>
+    <div class="chats-page">
+        <div class="chats-list">
+            <div class="chats-list__header">
+                <div class="chats-list__header__profile">
+                    Профиль
+                    <div class="arrow-right"></div>
+                </div>
+                <div class="chats-list__header__search">
+                    Поиск
+                </div>
+            </div>
+            <div class="chats-list__list">
+                {{#each chats}}
+                    {{> chat-item 
+                        to=to
+                        content=content
+                        date=date
+                        fromYou=fromYou
+                    }}
+                {{/each}}
+            </div>
+        </div>
+        <div class="chat-empty">
+            Выберите чат чтобы отправить сообщение
+        </div>
+    </div>
+</body>
