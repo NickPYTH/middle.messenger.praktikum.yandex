@@ -1,0 +1,21 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
+    <title>{{title}}</title>
+    <script type="module" src="./main.js"></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="links-list">
+            <h3>{{pageName}}</h3>
+            {{#each pageLinks}}
+                <a  href="{{link}}">
+                    {{linkName}}
+                </a>
+            {{/each}}
+        </div>
+    </div>
+</body>
+</html>

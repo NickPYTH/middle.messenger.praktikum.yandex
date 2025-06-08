@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+input:focus {
+    outline: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.page-wrapper {
+    font-family: "Comfortaa", sans-serif;
+}
+
+.form {
+    padding: 50px 0 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 60px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 8px 4px rgba(34, 60, 80, 0.2);
+    width: 500px;
+
+    &__title {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    &__fields {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 300px;
+    }
+
+    &__label {
+        font-size: 18px;
+        font-weight: 400;
+        color: #646464;
+    }
+
+    &__input {
+        margin-top: 5px;
+        font-size: 14px;
+        width: 100%;
+        border: 0 solid #ffffff;
+        border-bottom: 2px solid rgb(163, 184, 236); 
+        padding-bottom: 3px;
+    }
+
+    &__input:hover {
+        border-bottom: 2px solid rgb(80 127 245); 
+    }
+
+}
+
+.button--primary {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 14px;
+    color: white;
+    height: 30px;
+    width: 300px;
+    background-color: rgb(80 127 245);
+    cursor: pointer;
+    border: 0; 
+    border-radius: 7px;
+}
+
+.button--primary:hover {
+    background-color: rgb(98, 143, 255);
+}
+
+.link--primary {
+    text-align: center;
+    text-decoration: none;
+    font-family: "Comfortaa", sans-serif;
+    font-size: 14px;
+    color: rgb(80 127 245);
+    height: 30px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.link--primary:hover {
+     color: rgb(120, 159, 255);
+}

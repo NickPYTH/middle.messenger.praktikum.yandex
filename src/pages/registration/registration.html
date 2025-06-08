@@ -1,0 +1,78 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
+    <title>{{pageName}}</title>
+    <script type="module" src="./registration.js"></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="registration-page">
+            <form class="login-form form">
+                <div class="form__title">
+                    {{pageName}}
+                </div>
+                <div class="form__fields">
+                    {{> text-input 
+                        label="Почта" 
+                        id="email" 
+                        name="email" 
+                        type="email"
+                        placeholder="Введите свою почту" 
+                    }}
+                    {{> text-input 
+                        label="Логин" 
+                        id="login" 
+                        name="login" 
+                        type="text"
+                        placeholder="Введите свой логин" 
+                    }}
+                    {{> text-input 
+                        label="Имя" 
+                        id="firstName" 
+                        name="firstName" 
+                        type="text"
+                        placeholder="Введите свое имя" 
+                    }}
+                    {{> text-input 
+                        label="Фамилия" 
+                        id="secondName" 
+                        name="secondName" 
+                        type="text"
+                        placeholder="Введите свою фамилию" 
+                    }}
+                    {{> text-input 
+                        label="Телефон" 
+                        id="phone" 
+                        name="phone" 
+                        type="text"
+                        placeholder="Введите свой телефон" 
+                    }}
+                    {{> text-input 
+                        label="Пароль" 
+                        id="password" 
+                        name="password" 
+                        type="password"
+                        placeholder="Введите свой пароль" 
+                    }}
+                    {{> text-input 
+                        label="Пароль (еще раз)" 
+                        id="password" 
+                        name="password" 
+                        type="password"
+                        placeholder="Введите свой пароль еще раз" 
+                    }}
+                    {{> button
+                        text="Зарегистрироваться"
+                    }}
+                    {{> button-link
+                        link="http://localhost:3000/pages/login/login.html"
+                        text="Войти"
+                    }}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
