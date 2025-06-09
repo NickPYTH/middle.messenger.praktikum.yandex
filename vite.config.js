@@ -8,19 +8,25 @@ const chats = [
     to: "Nick",
     content: "Hi maan!",
     date: 'today',
-    fromYou: true
+    fromYou: true,
+    unReadCount: 0,
+    hasUnReadCount: false,
   },
   {
     to: "Mellory",
     content: "Hi maan!",
     date: '15:12',
-    fromYou: false
+    fromYou: false,
+    unReadCount: 1,
+    hasUnReadCount: true
   },
   {
     to: "Butche",
     content: "Hi maan!",
     date: 'Wed',
-    fromYou: true
+    fromYou: true,
+    unReadCount: 0,
+    hasUnReadCount: false
   }
 ];
 
@@ -40,6 +46,18 @@ const pages = {
           linkName: 'Чаты',
           link: './pages/chats/chats.html'
         },
+        {
+          linkName: 'Профиль',
+          link: './pages/profile/profile.html'
+        },
+        {
+          linkName: '404',
+          link: './pages/notFound/notFound.html'
+        },
+        {
+          linkName: '500',
+          link: './pages/error/error.html'
+        },
       ],
     },
     '/pages/login/login.html': {
@@ -52,6 +70,15 @@ const pages = {
       pageName: 'Чаты',
       chats,
     },
+    '/pages/profile/profile.html': {
+      pageName: 'Профиль',
+    },
+    '/pages/notFound/notFound.html': {
+      pageName: '404',
+    },
+    '/pages/error/error.html': {
+      pageName: '500',
+    },
 };
 
 export default defineConfig({
@@ -63,7 +90,10 @@ export default defineConfig({
         index: resolve(__dirname, './src/index.html'), 
         login: resolve(__dirname, './src/pages/login/login.html'), 
         registration: resolve(__dirname, './src/pages/registration/registration.html'), 
-        chats: resolve(__dirname, './src/pages/chats/chats.html'), 
+        chats: resolve(__dirname, './src/pages/chats/chats.html'),
+        profile: resolve(__dirname, './src/pages/profile/profile.html'),
+        notFound: resolve(__dirname, './src/pages/notFound/notFound.html'),
+        error: resolve(__dirname, './src/pages/error/error.html'),
       }
     },
     outDir: '../dist', 

@@ -1,0 +1,87 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
+    <title>{{pageName}}</title>
+    <script type="module" src="profile.js"></script>
+</head>
+<body>
+    <div class="profile-page">
+        <div class="profile-page__left-menu">
+            <a href="http://localhost:3000/pages/chats/chats.html" class="profile-page__left-menu__back-btn"></a>
+        </div>
+        <div class="profile-page__right-menu">
+            <div class="form__fields">
+                <div class="form__header">
+                    <div class="form__header-image"></div>
+                    <div class="form__header-name">Ivan</div>
+                </div>
+                {{> text-input
+                    label="Почта"
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="someemail@yandex.ru"
+                    disabled=true
+                }}
+                {{> text-input
+                    label="Логин"
+                    id="login"
+                    name="login"
+                    type="text"
+                    placeholder="somelogin"
+                    disabled=true
+                }}
+                {{> text-input
+                    label="Имя"
+                    id="login"
+                    name="login"
+                    type="text"
+                    placeholder="somelogin"
+                    disabled=true
+                }}
+                {{> text-input
+                    label="Фамилия"
+                    id="login"
+                    name="login"
+                    type="text"
+                    placeholder="somelogin"
+                    disabled=true
+                }}
+                {{> text-input
+                    label="Имя в чате"
+                    id="login"
+                    name="login"
+                    type="text"
+                    placeholder="somelogin"
+                    disabled=true
+                }}
+                {{> text-input
+                    label="Телефон"
+                    id="login"
+                    name="login"
+                    type="text"
+                    placeholder="somelogin"
+                    disabled=true
+                }}
+
+                {{> button-link
+                    link="http://localhost:3000/pages/registration/registration.html"
+                    text="Изменить данные"
+                }}
+
+                {{> button-link
+                    link="http://localhost:3000/pages/registration/registration.html"
+                    text="Изменить пароль"
+                }}
+
+                {{> button-link
+                    link="http://localhost:3000/pages/registration/registration.html"
+                    text="Выйти"
+                    danger=true
+                }}
+            </div>
+        </div>
+    </div>
+</body>

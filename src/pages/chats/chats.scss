@@ -1,3 +1,7 @@
+a:visited {
+    color: inherit;
+}
+
 .arrow-right {
     display: inline-block;
     width: 0;
@@ -23,7 +27,7 @@
     &__header {
         display: flex;
         flex-direction: column;
-        border-bottom: 2px solid #dddddd; 
+        border-bottom: 1px solid #dddddd;
         font-size: 14px;
         color: #797979;
 

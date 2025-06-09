@@ -2,13 +2,13 @@
     <label for="{{id}}" class="form__label">
         {{label}}
     </label>
-
-    <input 
+    <input
         id="{{id}}" 
         name="{{name}}" 
         class="form__input" 
         placeholder="{{ placeholder }}" 
         type="{{type}}"
         value="{{value}}"
+        {{#if disabled}}disabled="disabled"{{/if}}
     >
 </div>
