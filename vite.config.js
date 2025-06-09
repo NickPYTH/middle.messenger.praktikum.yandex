@@ -5,9 +5,9 @@ import handlebars from 'vite-plugin-handlebars';
 
 const chats = [
   {
-    to: "Nick",
+    to: "Star",
     content: "Hi maan!",
-    date: 'today',
+    date: '15:12',
     fromYou: true,
     unReadCount: 0,
     hasUnReadCount: false,
@@ -21,9 +21,9 @@ const chats = [
     hasUnReadCount: true
   },
   {
-    to: "Butche",
+    to: "Butcher",
     content: "Hi maan!",
-    date: 'Wed',
+    date: '15:12',
     fromYou: true,
     unReadCount: 0,
     hasUnReadCount: false

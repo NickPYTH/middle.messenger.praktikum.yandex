@@ -13,9 +13,13 @@
     border-right: 2px solid #e7e7e7;
 
     &__back-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
       height: 50px;
-      width: 50px;
-      border-radius: 25px;
+      width: 80px;
+      border-radius: 20px;
       background: rgb(80 127 245);;
     }
   }
