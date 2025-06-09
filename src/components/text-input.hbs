@@ -1,5 +1,5 @@
 <div>
-    <label for="{{id}}" class="form__label">
+    <label for="{{id}}" class="form__label {{#if error}}form__label-error{{/if}}">
         {{label}}
     </label>
     <input
@@ -11,4 +11,5 @@
         value="{{value}}"
         {{#if disabled}}disabled="disabled"{{/if}}
     >
+    {{#if error}}Пароли не совпадают{{/if}}
 </div>

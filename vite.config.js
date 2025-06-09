@@ -92,6 +92,8 @@ export default defineConfig({
         registration: resolve(__dirname, './src/pages/registration/registration.html'), 
         chats: resolve(__dirname, './src/pages/chats/chats.html'),
         profile: resolve(__dirname, './src/pages/profile/profile.html'),
+        profileEdit: resolve(__dirname, './src/pages/profileEdit/profileEdit.html'),
+        editPassword: resolve(__dirname, './src/pages/editPassword/editPassword.html'),
         notFound: resolve(__dirname, './src/pages/notFound/notFound.html'),
         error: resolve(__dirname, './src/pages/error/error.html'),
       }

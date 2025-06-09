@@ -66,6 +66,10 @@ body {
         font-size: 18px;
         font-weight: 400;
         color: #646464;
+
+        &-error {
+            color: red;
+        }
     }
 
     &__input {

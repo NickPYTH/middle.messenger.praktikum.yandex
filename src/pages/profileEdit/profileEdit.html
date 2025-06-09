@@ -4,12 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
     <title>{{pageName}}</title>
-    <script type="module" src="profile.js"></script>
+    <script type="module" src="profileEdit.js"></script>
 </head>
 <body>
     <div class="profile-page">
         <div class="profile-page__left-menu">
-            <a href="http://localhost:3000/pages/chats/chats.html" class="profile-page__left-menu__back-btn">Назад</a>
+            <a href="http://localhost:3000/pages/profile/profile.html" class="profile-page__left-menu__back-btn">Назад</a>
         </div>
         <div class="profile-page__right-menu">
             <div class="form__fields">
@@ -23,7 +23,6 @@
                     name="email"
                     type="email"
                     placeholder="someemail@yandex.ru"
-                    disabled=true
                 }}
                 {{> text-input
                     label="Логин"
@@ -31,7 +30,6 @@
                     name="login"
                     type="text"
                     placeholder="somelogin"
-                    disabled=true
                 }}
                 {{> text-input
                     label="Имя"
@@ -39,7 +37,6 @@
                     name="login"
                     type="text"
                     placeholder="somelogin"
-                    disabled=true
                 }}
                 {{> text-input
                     label="Фамилия"
@@ -47,7 +44,6 @@
                     name="login"
                     type="text"
                     placeholder="somelogin"
-                    disabled=true
                 }}
                 {{> text-input
                     label="Имя в чате"
@@ -55,7 +51,6 @@
                     name="login"
                     type="text"
                     placeholder="somelogin"
-                    disabled=true
                 }}
                 {{> text-input
                     label="Телефон"
@@ -63,24 +58,11 @@
                     name="login"
                     type="text"
                     placeholder="somelogin"
-                    disabled=true
                 }}
 
-                {{> button-link
-                    link="http://localhost:3000/pages/profileEdit/profileEdit.html"
-                    text="Изменить данные"
-                }}
-
-                {{> button-link
-                    link="http://localhost:3000/pages/editPassword/editPassword.html"
-                    text="Изменить пароль"
-                }}
-
-                {{> button-link
-                    link="http://localhost:3000/pages/login/login.html"
-                    text="Выйти"
-                    danger=true
-                }}
+                {{> button
+                        text="Сохранить"
+                    }}
             </div>
         </div>
     </div>
