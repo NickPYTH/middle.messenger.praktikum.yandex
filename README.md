@@ -22,7 +22,3 @@ https://darling-pudding-3ab635.netlify.app/
 404: https://darling-pudding-3ab635.netlify.app/pages/notfound/notfound
 
 500: https://darling-pudding-3ab635.netlify.app/pages/error/error
-
-
-
-
