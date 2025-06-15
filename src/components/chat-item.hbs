@@ -1,0 +1,20 @@
+<div class="chat-item">
+    <div class="chat-item__image"></div>
+    <div class="chat-item__message">
+        <div class="chat-item__message-to">{{to}}</div>
+        <div class="chat-item__message-content">
+          {{#if fromYou}}
+            <span class="chat-item__message-content-isFromYou">Вы:</span>
+          {{/if}}
+          {{content}}
+        </div>
+    </div>
+    <div class="chat-item__extra">
+        <div class="chat-item__extra-time">{{date}}</div>
+          {{#if hasUnReadCount}}
+            <div class="chat-item__extra-count">
+              {{unReadCount}}
+            </div>
+          {{/if}}
+    </div>
+</div>

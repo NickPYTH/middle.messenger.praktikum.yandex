@@ -1,0 +1,15 @@
+<div>
+    <label for="{{id}}" class="form__label {{#if error}}form__label-error{{/if}}">
+        {{label}}
+    </label>
+    <input
+        id="{{id}}" 
+        name="{{name}}" 
+        class="form__input" 
+        placeholder="{{ placeholder }}" 
+        type="{{type}}"
+        value="{{value}}"
+        {{#if disabled}}disabled="disabled"{{/if}}
+    >
+    {{#if error}}Пароли не совпадают{{/if}}
+</div>
