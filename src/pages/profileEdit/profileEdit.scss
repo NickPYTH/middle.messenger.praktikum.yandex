@@ -1,3 +1,6 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/main";
+
 .profile-page {
   height: 100vh;
   width: 100%;
@@ -9,18 +12,18 @@
     align-items: center;
     width: 5%;
     height: 100%;
-    background: #f0f0f0;
+    background: vars.$light-gray;
     border-right: 2px solid #e7e7e7;
 
     &__back-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
+      color: vars.$white-color;
       height: 50px;
       width: 80px;
       border-radius: 20px;
-      background: rgb(80 127 245);;
+      background: vars.$primary-color;;
     }
   }
 

@@ -7,7 +7,7 @@
     <script type="module" src="profileEdit.js"></script>
 </head>
 <body>
-    <div class="profile-page">
+    <main class="profile-page">
         <div class="profile-page__left-menu">
             <a href="http://localhost:3000/pages/profile/profile.html" class="profile-page__left-menu__back-btn">Назад</a>
         </div>
@@ -33,17 +33,17 @@
                 }}
                 {{> text-input
                     label="Имя"
-                    id="login"
-                    name="login"
+                    id="first_name"
+                    name="first_name"
                     type="text"
-                    placeholder="somelogin"
+                    placeholder="some first name"
                 }}
                 {{> text-input
                     label="Фамилия"
-                    id="login"
-                    name="login"
+                    id="second_name"
+                    name="second_name"
                     type="text"
-                    placeholder="somelogin"
+                    placeholder="some second name"
                 }}
                 {{> text-input
                     label="Имя в чате"
@@ -65,5 +65,5 @@
                     }}
             </div>
         </div>
-    </div>
+    </main>
 </body>

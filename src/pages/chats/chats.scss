@@ -1,3 +1,6 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/main";
+
 a:visited {
     color: inherit;
 }
@@ -113,9 +116,9 @@ textarea:hover {
 
         &-send {
             text-decoration: none;
-            color: #ffffff;
+            color: vars.$white-color;
             padding: 5px;
-            background-color: rgb(80 127 245); 
+            background-color: vars.$primary-color; 
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -135,13 +138,13 @@ textarea:hover {
     margin: 10px;
 
     &--left {
-        background-color: #f0f0f0;
+        background-color: vars.$light-gray;
         border-radius: 0 10px 10px 10px;
     }
 
     &--right {
         margin-left: auto;
-        background-color: #f0f0f0;
+        background-color: vars.$light-gray;
         border-radius: 10px 0px 10px 10px;
     }
 }

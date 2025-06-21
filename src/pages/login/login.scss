@@ -1,5 +1,8 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/main";
+
 .login-page {
-    background: #ffffff;
+    background: vars.$white-color;
     width: 100vw;
     height: 100vh;
     display: flex;
