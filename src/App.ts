@@ -2,6 +2,7 @@ import Block from "./reactor/Block";
 import LoginPage from "./pages/login";
 import Footer from "./components/footer/footer";
 import RegistrationPage from "./pages/registration";
+import ChatsPage from "./pages/chats";
 
 type AppStateType = {
     currentPage: string;
@@ -10,7 +11,7 @@ type AppStateType = {
 const linksList = [
     { linkTitle: 'Авторизация', page: 'AuthPage' },
     { linkTitle: 'Регистрация', page: 'RegistrationPage' },
-    { linkTitle: 'Главная', page: 'MainPage' },
+    { linkTitle: 'Чаты', page: 'ChatsPage' },
     { linkTitle: 'Профиль', page: 'ProfilePage' },
     { linkTitle: 'Изменение профиля', page: 'ProfileEditPage' },
     { linkTitle: 'Смена пароля', page: 'PasswordEditPage' },
@@ -88,6 +89,9 @@ export default class App {
                 break;
             case 'RegistrationPage':
                 this.currentPage = new RegistrationPage();
+                break;
+            case 'ChatsPage':
+                this.currentPage = new ChatsPage();
                 break;
             default:
                 this.currentPage = new LoginPage();

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+//@ts-ignore
 import handlebars from 'vite-plugin-handlebars';
 import checker from 'vite-plugin-checker';
 
@@ -20,4 +21,3 @@ export default defineConfig({
     }
   }
 })
-

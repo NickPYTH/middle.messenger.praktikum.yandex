@@ -1,5 +1,5 @@
-@use "../../styles/variables" as vars;
-@use "../../styles/main";
+@use "./variables" as vars;
+@use "./main";
 
 a:visited {
     color: inherit;
@@ -100,6 +100,7 @@ textarea:hover {
         border-top: 1px solid #dddddd;
         display: flex;
         align-items: center;
+        margin-bottom: 30px;
 
         &-text {
             width: 90%;
