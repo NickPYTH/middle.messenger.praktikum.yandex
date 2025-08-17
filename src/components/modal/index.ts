@@ -1,12 +1,12 @@
-import Block from "../../reactor/Block";
+import Block, {IBlockEvents} from "../../reactor/Block";
 
 type ModalType = {
-    className?: string;
     title?: string;
     form?: boolean;
     backButton?: Block;
     bodyContent?: Block[];
     footerContent?: Block[];
+    events?: IBlockEvents;
 }
 
 export default class Modal extends Block {
@@ -19,7 +19,7 @@ export default class Modal extends Block {
     render(): string {
         return `
             <div class="wrapper">
-                <div class="form ${this.props.className || ''}">
+                <div class="form">
                     <div class="form__title">
                         {{{backButton}}}
                         ${this.props.title ? 

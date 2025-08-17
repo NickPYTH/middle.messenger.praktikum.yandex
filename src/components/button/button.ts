@@ -4,7 +4,6 @@ import {validateField} from '../../utils/validation';
 type ButtonType = {
     id?: string;
     name?: string;
-    className?: string;
     [key: string]: unknown;
 }
 

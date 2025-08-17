@@ -22,11 +22,9 @@ export default class InputField extends Block<InputType> {
             ...(props.events || {}),
             blur: blurHandler
         };
-        const inputClass = `input ${props.className || ''}${props.error ? ' error' : ''}`;
 
         super({
             ...props,
-            inputClass,
             events
         });
     }
@@ -35,28 +33,24 @@ export default class InputField extends Block<InputType> {
         const input = e.target as HTMLInputElement;
         const { name, value } = input;
         const error = validateField(name, value);
+        this.props
         this.setProps({
             error,
             value,
-            inputClass: `input ${this.props.className || ''}${error ? ' error' : ''}`
+            errorClass: `${error ? 'form__input-error' : ''}`
         });
     }
 
     render(): string {
         return `
-            <div>
-                <label class="form__label">
-                    ${this.props.label}
-                </label>
                 <input
                     id=${this.props.id || ''}
                     type="${this.props.type}"
                     placeholder="${this.props.placeholder}"
                     name="${this.props.name}"
-                    class="form__input"
+                    class="form__input ${this.props.errorClass}"
                     value="${this.props.value || ''}"
                 />
-            </div>
         `;
     }
 }

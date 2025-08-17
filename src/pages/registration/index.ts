@@ -5,9 +5,23 @@ import Button from "../../components/button/button";
 import Link from "../../components/link/link";
 import {validateForm} from "../../utils/validation";
 
-export default class LoginPage extends Block {
+export default class RegistrationPage extends Block {
     constructor() {
         const bodyComponents = [
+            new InputField({
+                id: 'inputFirstName',
+                label: 'Имя',
+                name: 'first_name',
+                type: 'text',
+                placeholder: 'Введите имя',
+            }),
+            new InputField({
+                id: 'inputSecondName',
+                label: 'Фамилия',
+                name: 'second_name',
+                type: 'text',
+                placeholder: 'Введите фамилию',
+            }),
             new InputField({
                 id: 'inputLogin',
                 label: 'Логин',
@@ -22,9 +36,23 @@ export default class LoginPage extends Block {
                 type: 'password',
                 placeholder: 'Ввведите пароль',
             }),
+            new InputField({
+                id: 'inputEmail',
+                label: 'Почта',
+                name: 'email',
+                type: 'email',
+                placeholder: 'Ввведите почту',
+            }),
+            new InputField({
+                id: 'inputPhone',
+                label: 'Телефон',
+                name: 'phone',
+                type: 'tel',
+                placeholder: 'Ввведите телефон',
+            }),
             new Button({
                 className: 'button--primary',
-                name: 'Войти',
+                name: 'Зарегистрироваться',
                 id: 'submitButton',
                 type: 'submit'
             }),
@@ -32,13 +60,13 @@ export default class LoginPage extends Block {
 
         const footerComponents = [
             new Link({
-                id: 'regLink',
-                text: 'Зарегестрироваться',
+                id: 'loginLink',
+                text: 'Войти',
             }),
         ];
 
         const modal = new Modal({
-            title: 'Вход',
+            title: 'Регистрация',
             form: true,
             bodyContent: bodyComponents,
             footerContent: footerComponents,
@@ -60,12 +88,12 @@ export default class LoginPage extends Block {
             data[key] = value.toString();
         });
 
-        const errors = validateForm(data);
+        const formErrors = validateForm(data);
 
-        if (Object.keys(errors).length === 0) {
+        if (Object.keys(formErrors).length === 0) {
             console.log('Form data:', data);
         } else {
-            console.error('Validation errors:', errors);
+            console.error('Validation errors:', formErrors);
         }
     }
 

@@ -1,6 +1,7 @@
 import Block from "./reactor/Block";
-import AuthPage from "./pages/login";
+import LoginPage from "./pages/login";
 import Footer from "./components/footer/footer";
+import RegistrationPage from "./pages/registration";
 
 type AppStateType = {
     currentPage: string;
@@ -8,13 +9,13 @@ type AppStateType = {
 
 const linksList = [
     { linkTitle: 'Авторизация', page: 'AuthPage' },
-    { linkTitle: 'Главная', page: 'Home' },
-    { linkTitle: 'Регистрация', page: 'Registration' },
-    { linkTitle: 'Профиль', page: 'Profile' },
-    { linkTitle: 'Профиль: смена данных', page: 'ProfileChange' },
-    { linkTitle: 'Профиль: смена пароля', page: 'ProfilePassChange' },
-    { linkTitle: '404', page: 'Page404' },
-    { linkTitle: '500', page: 'Page500' }
+    { linkTitle: 'Регистрация', page: 'RegistrationPage' },
+    { linkTitle: 'Главная', page: 'MainPage' },
+    { linkTitle: 'Профиль', page: 'ProfilePage' },
+    { linkTitle: 'Изменение профиля', page: 'ProfileEditPage' },
+    { linkTitle: 'Смена пароля', page: 'PasswordEditPage' },
+    { linkTitle: 'Ошибка 404', page: 'Error404Page' },
+    { linkTitle: 'Ошибка 500', page: 'Error500Page' }
 ];
 
 export default class App {
@@ -25,7 +26,7 @@ export default class App {
 
     constructor() {
         this.state = {
-            currentPage: 'Home'
+            currentPage: 'AuthPage'
         };
         this.navigateTo = this.navigateTo.bind(this);
         this.handleFooterClick = this.handleFooterClick.bind(this);
@@ -82,11 +83,14 @@ export default class App {
         }
 
         switch (this.state.currentPage) {
-            case 'Auth':
-                this.currentPage = new AuthPage();
+            case 'AuthPage':
+                this.currentPage = new LoginPage();
+                break;
+            case 'RegistrationPage':
+                this.currentPage = new RegistrationPage();
                 break;
             default:
-                this.currentPage = new AuthPage();
+                this.currentPage = new LoginPage();
                 break;
         }
 

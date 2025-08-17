@@ -88,7 +88,12 @@ body {
         border: 0 solid vars.$white-color;
         border-bottom: 2px solid rgb(163, 184, 236); 
         padding-bottom: 3px;
+
+        &-error {
+            border-bottom: 2px solid rgb(255, 60, 60);
+        }
     }
+
 
     &__input:hover {
         border-bottom: 2px solid vars.$primary-color; 
