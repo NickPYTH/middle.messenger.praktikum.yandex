@@ -2,39 +2,44 @@ import { validateForm } from '../../utils/validation';
 import Block from "../../reactor/Block";
 import InputField from "../../components/input/input";
 import Modal from "../../components/modal";
+import Button from "../../components/Button/button";
 
 export default class AuthPage extends Block {
     constructor() {
         const bodyComponents = [
             new InputField({
                 id: 'inputLogin',
+                label: 'Логин',
                 name: 'login',
                 type: 'text',
-                placeholder: 'Логин',
-                className: 'auth-field'
+                placeholder: 'Введите логин',
             }),
             new InputField({
                 id: 'inputPassword',
+                label: 'Пароль',
                 name: 'password',
                 type: 'password',
-                placeholder: 'Пароль',
-                className: 'auth-field'
-            }),
+                placeholder: 'Ввведите пароль',
+            })
         ];
 
-        // const footerComponents = [
-        //
-        // ];
+        const footerComponents = [
+            new Button({
+                id: 'submitButton',
+                name: 'Войти',
+                className: 'button--primary'
+            }),
+        ];
 
         const modal = new Modal({
             className: 'modal-auth',
             title: 'Вход',
             form: true,
             bodyContent: bodyComponents,
-            //footerContent: footerComponents,
-            // events: {
-            //     submit: (e: Event) => this.handleSubmit(e)
-            // }
+            footerContent: footerComponents,
+            //events: {
+                 //submit: (e: Event) => this.handleSubmit(e)
+             //}
         });
 
         super({ modal });

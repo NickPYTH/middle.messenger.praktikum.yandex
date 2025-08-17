@@ -1,26 +1,23 @@
 import Block, {BlockEvent, IBlockEvents} from '../../reactor/Block';
 import {validateField} from '../../utils/validation';
 
-type InputType = {
+type ButtonType = {
     id?: string;
-    type?: string;
-    label?: string;
-    placeholder?: string;
     name?: string;
-    events?: IBlockEvents;
-    value?: string;
+    className?: string;
     [key: string]: unknown;
 }
 
-export default class InputField extends Block<InputType> {
-    constructor(props: InputType) {
+export default class Button extends Block<ButtonType> {
+    constructor(props: ButtonType) {
         const blurHandler: BlockEvent = (e: Event) => {
             this.handleBlur(e as FocusEvent);
         };
 
         const events: IBlockEvents = {
             ...(props.events || {}),
-            blur: blurHandler
+            blur: blurHandler,
+            onClick: () => {alert('kek')}
         };
         const inputClass = `input ${props.className || ''}${props.error ? ' error' : ''}`;
 
@@ -44,19 +41,7 @@ export default class InputField extends Block<InputType> {
 
     render(): string {
         return `
-            <div>
-                <label class="form__label">
-                    ${this.props.label}
-                </label>
-                <input
-                    id=${this.props.id || ''}
-                    type="${this.props.type}"
-                    placeholder="${this.props.placeholder}"
-                    name="${this.props.name}"
-                    class="form__input"
-                    value="${this.props.value || ''}"
-                />
-            </div>
+            <button class=${this.props.className}>${this.props.name}</button>
         `;
     }
 }

@@ -18,7 +18,7 @@ export default class Modal extends Block {
 
     render(): string {
         return `
-            <div>
+            <div class="wrapper">
                 <div class="form ${this.props.className || ''}">
                     <div class="form__title">
                         {{{backButton}}}
@@ -28,10 +28,10 @@ export default class Modal extends Block {
                             ''}
                     </div>
                     ${this.props.form ?
-                        `<form class="modal__body">{{{bodyContent}}}</form>`
+                        `<form class="form__fields">{{{bodyContent}}}</form>`
                         :
-                        `<div class="modal__body">{{{bodyContent}}}</div>`}
-                    <div class="modal__footer">{{{footerContent}}}</div>
+                        `<div class="form__fields">{{{bodyContent}}}</div>`}
+                    <div class="form__title">{{{footerContent}}}</div>
                 </div>
             </div>
          
