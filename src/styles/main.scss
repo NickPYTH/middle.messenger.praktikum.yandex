@@ -1,3 +1,4 @@
+@use "variables" as vars;
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
 a {
@@ -9,7 +10,7 @@ input:focus {
 }
 
 input:defined {
-    background-color: #ffffff;
+    background-color: vars.$white-color;
 }
 
 body {
@@ -21,6 +22,14 @@ body {
     padding: 0;
 }
 
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .form {
     padding: 50px 0 50px 0;
     display: flex;
@@ -29,7 +38,7 @@ body {
     flex-direction: column;
     gap: 60px;
     border-radius: 15px;
-    box-shadow: 1px 1px 8px 4px rgba(34, 60, 80, 0.2);
+    box-shadow: 1px 1px 8px 4px rgba(34, 60, 80, 20%);
     width: 500px;
 
     &__title {
@@ -46,7 +55,7 @@ body {
         &-image {
             width: 75px;
             height: 75px;
-            background-color: #f0f0f0;
+            background-color: vars.$light-gray;
             border-radius: 35px;
         }
 
@@ -60,6 +69,12 @@ body {
         flex-direction: column;
         gap: 20px;
         width: 300px;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
 
     &__label {
@@ -76,13 +91,18 @@ body {
         margin-top: 5px;
         font-size: 14px;
         width: 100%;
-        border: 0 solid #ffffff;
+        border: 0 solid vars.$white-color;
         border-bottom: 2px solid rgb(163, 184, 236); 
         padding-bottom: 3px;
+
+        &-error {
+            border-bottom: 2px solid rgb(255, 60, 60);
+        }
     }
 
+
     &__input:hover {
-        border-bottom: 2px solid rgb(80 127 245); 
+        border-bottom: 2px solid vars.$primary-color; 
     }
 
 }
@@ -93,7 +113,7 @@ body {
     color: white;
     height: 30px;
     width: 300px;
-    background-color: rgb(80 127 245);
+    background-color: vars.$primary-color;
     cursor: pointer;
     border: 0; 
     border-radius: 7px;
@@ -107,7 +127,7 @@ body {
     text-align: center;
     font-family: "Comfortaa", sans-serif;
     font-size: 14px;
-    color: rgb(80 127 245);
+    color: vars.$primary-color;
     height: 30px;
     width: 300px;
     cursor: pointer;
@@ -176,9 +196,9 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgb(80 127 245);
+            background: vars.$primary-color;
             border-radius: 10px;
-            color: #ffffff;
+            color: vars.$white-color;
             width: 20px;
             height: 20px;
             margin-bottom: 7px;
@@ -208,3 +228,4 @@ body {
     }
 
 }
+
