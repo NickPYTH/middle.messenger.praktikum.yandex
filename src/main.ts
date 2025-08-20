@@ -6,4 +6,3 @@ import './styles/chats.scss';
 document.addEventListener('DOMContentLoaded', () => {
     new App();
 });
-
