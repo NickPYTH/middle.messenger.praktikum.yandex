@@ -9,6 +9,7 @@ type InputType = {
     name?: string;
     events?: IBlockEvents;
     value?: string;
+    disabled?: boolean;
     [key: string]: unknown;
 }
 
@@ -50,6 +51,7 @@ export default class InputField extends Block<InputType> {
                     name="${this.props.name}"
                     class="form__input ${this.props.errorClass}"
                     value="${this.props.value || ''}"
+                    ${this.props.disabled ? "disabled":""}
                 />
         `;
     }

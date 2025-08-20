@@ -31,7 +31,7 @@ export default class Modal extends Block {
                         `<form class="form__fields">{{{bodyContent}}}</form>`
                         :
                         `<div class="form__fields">{{{bodyContent}}}</div>`}
-                    <div class="form__title">{{{footerContent}}}</div>
+                    <div class="form__footer">{{{footerContent}}}</div>
                 </div>
             </div>
          

@@ -1,11 +1,9 @@
 import Block from "../../reactor/Block";
 import InputField from "../../components/input/input";
 import Modal from "../../components/modal";
-import Button from "../../components/button/button";
 import Link from "../../components/link/link";
-import {validateForm} from "../../utils/validation";
 
-export default class EditProfilePage extends Block {
+export default class ProfilePage extends Block {
     constructor() {
         const bodyComponents = [
             new InputField({
@@ -14,7 +12,8 @@ export default class EditProfilePage extends Block {
                 name: 'email',
                 type: 'email',
                 placeholder: 'Введите почту',
-                value: 'some@mail.ru'
+                value: 'some@mail.ru',
+                disabled: true
             }),
             new InputField({
                 id: 'login',
@@ -22,7 +21,8 @@ export default class EditProfilePage extends Block {
                 name: 'login',
                 type: 'text',
                 placeholder: 'Введите логин',
-                value: 'logogogoog'
+                value: 'logogogoog',
+                disabled: true
             }),
             new InputField({
                 id: 'first_name',
@@ -30,7 +30,8 @@ export default class EditProfilePage extends Block {
                 name: 'first_name',
                 type: 'text',
                 placeholder: 'Ввведите имя',
-                value: 'Somename'
+                value: 'Somename',
+                disabled: true
             }),
             new InputField({
                 id: 'second_name',
@@ -38,7 +39,8 @@ export default class EditProfilePage extends Block {
                 name: 'second_name',
                 type: 'text',
                 placeholder: 'Ввведите фамилию',
-                value: 'Somesecondname'
+                value: 'Somesecondname',
+                disabled: true
             }),
             new InputField({
                 id: 'display_name',
@@ -46,7 +48,8 @@ export default class EditProfilePage extends Block {
                 name: 'display_name',
                 type: 'text',
                 placeholder: 'Ввведите имя в чате',
-                value: 'SomeDisplayName'
+                value: 'SomeDisplayName',
+                disabled: true
             }),
             new InputField({
                 id: 'phone',
@@ -54,53 +57,34 @@ export default class EditProfilePage extends Block {
                 name: 'phone',
                 type: 'tel',
                 placeholder: 'Ввведите телефон',
-                value: '79998887766'
-            }),
-            new Button({
-                className: 'button--primary',
-                name: 'Сохранить',
-                id: 'submitButton',
-                type: 'submit'
+                value: '79998887766',
+                disabled: true
             }),
         ];
 
         const footerComponents = [
             new Link({
-                id: 'backLink',
-                text: 'Отменить и вернуться',
+                id: 'editProfileLink',
+                text: 'Редактировать',
+            }),
+            new Link({
+                id: 'changePasswordLink',
+                text: 'Сменить пароль',
+            }),
+            new Link({
+                id: 'returnToChatsLink',
+                text: 'Вернуться к чатам',
             }),
         ];
 
         const modal = new Modal({
-            title: 'Редактирование профиля',
+            title: 'Профиль',
             form: true,
             bodyContent: bodyComponents,
             footerContent: footerComponents,
-            events: {
-                 submit: (e: Event) => this.handleSubmit(e)
-             }
         });
 
         super({ modal });
-    }
-
-    handleSubmit(event: Event) {
-        event.preventDefault();
-        const form = event.target as HTMLFormElement;
-        const formData = new FormData(form);
-
-        const data: Record<string, string> = {};
-        formData.forEach((value, key) => {
-            data[key] = value.toString();
-        });
-
-        const errors = validateForm(data);
-
-        if (Object.keys(errors).length === 0) {
-            console.log('New profile data:', data);
-        } else {
-            console.error('Error new profile data:', errors);
-        }
     }
 
     render(): string {

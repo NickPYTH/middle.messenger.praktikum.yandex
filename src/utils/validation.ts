@@ -1,4 +1,4 @@
-type Validator = (value: string) => string | null;
+type ValidatorType = (value: string) => string | null;
 
 const patterns = {
     name: /^[A-ZА-ЯЁ][a-zа-яё-]*$/,
@@ -8,14 +8,14 @@ const patterns = {
     phone: /^\+?[0-9]{10,15}$/
 };
 
-const nameValidator: Validator = (value) => validatePattern(
+const nameValidator: ValidatorType = (value) => validatePattern(
     value,
     patterns.name,
-    "Латиница/кириллица, первая заглавная, можно дефис"
+    "Первая заглавная, латиница/кириллица"
 );
 
-const passwordValidator: Validator = (value) => {
-    if (value.length < 8 || value.length > 40) return "Длина 8-40 символов";
+const passwordValidator: ValidatorType = (value) => {
+    if (value.length < 8 || value.length > 40) return "8-40 символов";
     return validatePattern(
         value,
         patterns.password,
@@ -23,7 +23,7 @@ const passwordValidator: Validator = (value) => {
     );
 };
 
-export const validators: Record<string, Validator> = {
+export const validators: Record<string, ValidatorType> = {
     first_name: nameValidator,
     second_name: nameValidator,
     login: (value) => {

@@ -4,6 +4,8 @@ import Footer from "./components/footer/footer";
 import RegistrationPage from "./pages/registration";
 import ChatsPage from "./pages/chats";
 import EditProfilePage from "./pages/editProfile";
+import ProfilePage from "./pages/profile";
+import ChangePasswordPage from "./pages/changePassword";
 
 type AppStateType = {
     currentPage: string;
@@ -15,7 +17,7 @@ const linksList = [
     { linkTitle: 'Чаты', page: 'ChatsPage' },
     { linkTitle: 'Профиль', page: 'ProfilePage' },
     { linkTitle: 'Изменение профиля', page: 'EditProfilePage' },
-    { linkTitle: 'Смена пароля', page: 'PasswordEditPage' },
+    { linkTitle: 'Смена пароля', page: 'ChangePasswordPage' },
     { linkTitle: 'Ошибка 404', page: 'Error404Page' },
     { linkTitle: 'Ошибка 500', page: 'Error500Page' }
 ];
@@ -96,6 +98,12 @@ export default class App {
                 break;
             case 'EditProfilePage':
                 this.currentPage = new EditProfilePage();
+                break;
+            case 'ProfilePage':
+                this.currentPage = new ProfilePage();
+                break;
+            case 'ChangePasswordPage':
+                this.currentPage = new ChangePasswordPage();
                 break;
             default:
                 this.currentPage = new LoginPage();
