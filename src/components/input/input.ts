@@ -38,7 +38,7 @@ export default class InputField extends Block<InputType> {
         this.setProps({
             error,
             value,
-            errorClass: `${error ? 'form__input-error' : ''}`
+            errorClass: `${error ? 'form__input-errorOld' : ''}`
         });
     }
 

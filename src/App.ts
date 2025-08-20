@@ -6,6 +6,8 @@ import ChatsPage from "./pages/chats";
 import EditProfilePage from "./pages/editProfile";
 import ProfilePage from "./pages/profile";
 import ChangePasswordPage from "./pages/changePassword";
+import NotFoundPage from "./pages/notFound";
+import ErrorPage from "./pages/error";
 
 type AppStateType = {
     currentPage: string;
@@ -18,8 +20,8 @@ const linksList = [
     { linkTitle: 'Профиль', page: 'ProfilePage' },
     { linkTitle: 'Изменение профиля', page: 'EditProfilePage' },
     { linkTitle: 'Смена пароля', page: 'ChangePasswordPage' },
-    { linkTitle: 'Ошибка 404', page: 'Error404Page' },
-    { linkTitle: 'Ошибка 500', page: 'Error500Page' }
+    { linkTitle: 'Ошибка 404', page: 'NotFoundPage' },
+    { linkTitle: 'Ошибка 500', page: 'ErrorPage' }
 ];
 
 export default class App {
@@ -104,6 +106,12 @@ export default class App {
                 break;
             case 'ChangePasswordPage':
                 this.currentPage = new ChangePasswordPage();
+                break;
+            case 'NotFoundPage':
+                this.currentPage = new NotFoundPage();
+                break;
+            case 'ErrorPage':
+                this.currentPage = new ErrorPage();
                 break;
             default:
                 this.currentPage = new LoginPage();

@@ -18,7 +18,7 @@ export default class SendMessageForm extends Block<any> {
         if (Object.keys(errors).length === 0) {
             console.log('Message data:', data);
         } else {
-            console.error('Message error:', errors);
+            console.error('Message errorOld:', errors);
         }
     }
     constructor() {

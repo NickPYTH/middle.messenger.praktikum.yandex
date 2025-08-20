@@ -18,7 +18,7 @@ export default class Button extends Block<ButtonType> {
             blur: blurHandler,
             onClick: () => {alert('kek')}
         };
-        const inputClass = `input ${props.className || ''}${props.error ? ' error' : ''}`;
+        const inputClass = `input ${props.className || ''}${props.error ? ' errorOld' : ''}`;
 
         super({
             ...props,
@@ -34,7 +34,7 @@ export default class Button extends Block<ButtonType> {
         this.setProps({
             error,
             value,
-            inputClass: `input ${this.props.className || ''}${error ? ' error' : ''}`
+            inputClass: `input ${this.props.className || ''}${error ? ' errorOld' : ''}`
         });
     }
 

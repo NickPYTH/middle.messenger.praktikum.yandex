@@ -60,7 +60,7 @@ export default class HTTPTransport {
             };
 
             xhr.onabort = () => reject(new Error('Request aborted'));
-            xhr.onerror = () => reject(new Error('Network error'));
+            xhr.onerror = () => reject(new Error('Network errorOld'));
             xhr.ontimeout = () => reject(new Error('Request timed out'));
             xhr.timeout = 5000;
 
