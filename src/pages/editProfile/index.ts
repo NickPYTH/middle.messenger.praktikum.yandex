@@ -9,6 +9,14 @@ export default class EditProfilePage extends Block {
     constructor() {
         const bodyComponents = [
             new InputField({
+                id: 'avatar',
+                label: 'Почта',
+                name: 'avatar',
+                type: 'file',
+                placeholder: '',
+                value: ''
+            }),
+            new InputField({
                 id: 'email',
                 label: 'Почта',
                 name: 'email',

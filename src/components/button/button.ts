@@ -4,6 +4,7 @@ import {validateField} from '../../utils/validation';
 type ButtonType = {
     id?: string;
     name?: string;
+    type?: string;
     [key: string]: unknown;
 }
 
@@ -40,7 +41,7 @@ export default class Button extends Block<ButtonType> {
 
     render(): string {
         return `
-            <button class=${this.props.className}>${this.props.name}</button>
+            <button ${this.props.type || 'type="submit"'} class=${this.props.className}>${this.props.name}</button>
         `;
     }
 }
