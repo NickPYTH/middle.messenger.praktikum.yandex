@@ -38,7 +38,8 @@ export default class ChatsPage extends Block {
             <main class="chats-page">
                 <div class="chats-list">
                     <div class="chats-list__header">
-                        <a href="http://localhost:3000/pages/profile/profile.html" class="chats-list__header__profile">
+                        <a href="http://localhost:3000/pages/profile/profile.html" 
+                            class="chats-list__header__profile">
                             Профиль
                             <div class="arrow-right"></div>
                         </a>

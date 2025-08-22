@@ -23,7 +23,11 @@ export default class ChatItem extends Block<ChatItemType> {
                 <div class="chat-item__message">
                     <div class="chat-item__message-to">${this.props.to}</div>
                     <div class="chat-item__message-content">
-                    ${this.props.fromYou ? `<span class="chat-item__message-content-isFromYou">Вы:</span>` : ``}
+                    ${this.props.fromYou ? 
+                        `<span class="chat-item__message-content-isFromYou">Вы:</span>` 
+                            : 
+                        ``
+                    }
                     ${this.props.content}
                     </div>
                 </div>

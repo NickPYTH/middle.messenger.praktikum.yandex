@@ -45,7 +45,7 @@ export default class App {
         this.footer = new Footer({
             links: linksList,
             events: {
-                click: (e:any) => this.handleFooterClick(e)
+                click: (e: Event) => this.handleFooterClick(e)
             }
         });
         const footerElement = this.footer.getContent();

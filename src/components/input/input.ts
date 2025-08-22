@@ -34,7 +34,6 @@ export default class InputField extends Block<InputType> {
         const input = e.target as HTMLInputElement;
         const { name, value } = input;
         const error = validateField(name, value);
-        this.props
         this.setProps({
             error,
             value,

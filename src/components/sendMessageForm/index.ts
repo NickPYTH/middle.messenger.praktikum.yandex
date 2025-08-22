@@ -1,7 +1,7 @@
 import Block from "../../reactor/Block";
 import {validateForm} from "../../utils/validation";
 
-export default class SendMessageForm extends Block<any> {
+export default class SendMessageForm extends Block {
 
     handleSubmit(event: Event) {
         event.preventDefault();
@@ -31,9 +31,12 @@ export default class SendMessageForm extends Block<any> {
     render(): string {
         return `
            <form class="chat__footer">
-                        <textarea name="message" class="chat__footer-text" placeholder="Ваше сообщение"></textarea>
-                        <button type="submit" class="chat__footer-send">Отправить</button>
-                    </form>
+            <textarea name="message"
+             class="chat__footer-text" 
+             placeholder="Ваше сообщение">        
+            </textarea>
+            <button type="submit" class="chat__footer-send">Отправить</button>
+           </form>
         `;
     }
 }
