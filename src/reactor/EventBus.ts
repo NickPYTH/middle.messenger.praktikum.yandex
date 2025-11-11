@@ -1,31 +1,37 @@
-export type EventHandler = (...args: unknown[]) => void;
+type Callback = (...args: any[]) => void;
 
-export default class EventBus {
-    private listeners: Record<string, EventHandler[]> = {};
+export class EventBus {
+  private listeners: { [event: string]: Callback[] };
 
-    public on(event: string, callback: EventHandler): void {
-        if (!this.listeners[event]) {
-            this.listeners[event] = [];
-        }
-        this.listeners[event].push(callback);
+  constructor() {
+    this.listeners = {};
+  }
+
+  on(event: string, callback: Callback): void {
+    if (!this.listeners[event]) {
+      this.listeners[event] = [];
     }
 
-    public off(event: string, callback: EventHandler): void {
-        if (this.listeners[event]) {
-            this.listeners[event] = this.listeners[event].filter(
-                (listener) => listener !== callback
-            );
-        } else {
-            throw new Error(`Нет события: ${event}`);
-        }
+    this.listeners[event].push(callback);
+  }
+
+  off(event: string, callback: Callback): void {
+    if (!this.listeners[event]) {
+      throw new Error(`Нет события: ${event}`);
     }
 
-    public emit(event: string, ...args: unknown[]): void {
-        if (!this.listeners[event]) {
-            throw new Error(`Нет события: ${event}`);
-        }
-        this.listeners[event].forEach((listener) => {
-            listener(...args);
-        });
+    this.listeners[event] = this.listeners[event].filter(
+      (listener) => listener !== callback,
+    );
+  }
+
+  emit(event: string, ...args: any[]): void {
+    if (!this.listeners[event]) {
+      throw new Error(`Нет события: ${event}`);
     }
+
+    this.listeners[event].forEach((listener) => {
+      listener(...args);
+    });
+  }
 }
