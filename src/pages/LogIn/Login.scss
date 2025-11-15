@@ -1,0 +1,18 @@
+@import "../../../assets/styles/color-scheme";
+@import "../../../assets/styles/default-main";
+
+.login {
+    @include default-main;
+
+    &__form {
+        &_fields {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            margin: 0 0 36px;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+    }
+}

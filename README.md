@@ -1,14 +1,19 @@
-Это проект мессенджера для второго спринта!
+### **MESSENGER**  
+Study project for Yandex.Praktikum  
 
-Добавлены TypeScript, ESLint, Stylelint.
+**Прототип / Макет:**  
+https://www.figma.com/file/Ngoxofva1QKyJFUqdvRVEc/MyChat?type=design&node-id=1-498&t=xK1y8sIdlFcMmOKD-0
+
+**Команды для запуска приложения**  
+npm run dev     - запуск проекта локально  
+
+npm run start   - сборка и запуск проекта на express-сервере
+
+npm run lint    - проверка правил оформления кода  
+
+**Последняя версия проекта на Netlify**  
+
+https://deploy--zippy-manatee-27aee2.netlify.app/
 
 
-Команды для запуска\сборки проекта:
-npm run dev
-npm run build
-
-Ссылка на дизайн проект в фигме:
-https://www.figma.com/design/82U7D9MXHt30QTthJXYbQX/Sprint-1?node-id=0-1&t=TsyyJHOJy211VUn7-1
-
-Ссылка на основную страницу с ссылками:
-https://darling-pudding-3ab635.netlify.app/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/26c97060-2d1a-4917-ae74-636d358c9f57/deploy-status)](https://app.netlify.com/sites/zippy-manatee-27aee2/deploys?branch=deploy)
