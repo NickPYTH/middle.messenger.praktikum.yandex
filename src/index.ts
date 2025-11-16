@@ -2,7 +2,7 @@ import Handlebars from 'handlebars';
 import { registerComponent } from './core/utils/registerComponent';
 import { Button } from './components/Button/Button';
 import { Input } from './components/Input/Input';
-import { Main } from './pages/Main/Main';
+import { Messenger } from './pages/Messenger/Messenger';
 import { LogIn } from './pages/LogIn/Login';
 import { Register } from './pages/Register/Register';
 import { Profile } from './pages/Profile/Profile';
@@ -18,6 +18,8 @@ import ChatHeader from './components/ChatHeader/ChatHeader';
 import ChatList from './components/ChatList/ChatList';
 import ChatMessage from './components/ChatMessage/ChatMessage';
 import ChatWindow from './components/ChatWindow/ChatWindow';
+import { Dialog } from './components/Dialog/Dialog';
+import { DialogCreateChat } from './components/DialogCreateChat/DialogCreateChat';
 import { ChatMessageBar } from './components/ChatMessageBar/ChatMessageBar';
 import { ChatSettingsBar } from './components/ChatSettingsBar/ChatSettingsBar';
 import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
@@ -35,6 +37,8 @@ Handlebars.registerPartial('ChatMessage', ChatMessage);
 Handlebars.registerPartial('ChatWindow', ChatWindow);
 
 registerComponent('Button', Button as typeof Block);
+registerComponent('Dialog', Dialog as typeof Block);
+registerComponent('DialogCreateChat', DialogCreateChat as typeof Block);
 registerComponent('Input', Input as typeof Block);
 registerComponent('Form', Form as typeof Block);
 registerComponent('ErrorMessage', ErrorMessage as typeof Block);
@@ -48,10 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     .use(Routes.Navigation, Navigation)
     .use(Routes.Login, LogIn)
     .use(Routes.Register, Register)
-    .use(Routes.Messenger, Main)
+    .use(Routes.Messenger, Messenger)
     .use(Routes.Profile, Profile)
     .use(Routes.ServerError, ServerError)
     .use(Routes.NotFound, NotFound)
     .start();
-  }
-);
+});
