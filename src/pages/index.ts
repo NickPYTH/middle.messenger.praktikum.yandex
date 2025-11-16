@@ -6,14 +6,14 @@ import { NotFound } from './NotFound/NotFound';
 import { ServerError } from './ServerError/ServerError';
 import { Navigation } from './Navigation/Navigation';
 
-const pages = {
-    LogIn,
-    Messenger,
-    NotFound,
-    Navigation,
-    Profile,
-    Register,
-    ServerError,
-}
+const pages : StringIndexed = {
+  LogIn,
+  Messenger,
+  NotFound,
+  Navigation,
+  Profile,
+  Register,
+  ServerError,
+};
 
 export default pages;
