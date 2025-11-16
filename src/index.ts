@@ -13,16 +13,17 @@ import Block from './core/Block';
 import Avatar from './components/Avatar/Avatar';
 import Form from './components/Form/Form';
 import ChatFeed from './components/ChatFeed/ChatFeed';
-import ChatBox from './components/ChatBox/ChatBox';
 import ChatHeader from './components/ChatHeader/ChatHeader';
 import ChatList from './components/ChatList/ChatList';
 import ChatMessage from './components/ChatMessage/ChatMessage';
 import ChatWindow from './components/ChatWindow/ChatWindow';
+import { ChatBox } from './components/ChatBox/ChatBox';
 import { Dialog } from './components/Dialog/Dialog';
 import { DialogCreateChat } from './components/DialogCreateChat/DialogCreateChat';
 import { ChatMessageBar } from './components/ChatMessageBar/ChatMessageBar';
 import { ChatSettingsBar } from './components/ChatSettingsBar/ChatSettingsBar';
 import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
+import { ChatSideBar } from './components/ChatSideBar/ChatSideBar';
 import { FormField } from './components/FormField/FormField';
 import { ErrorMessage } from './components/ErrorMessage/ErrorMessage';
 import Router from './core/Router';
@@ -30,9 +31,7 @@ import { Routes } from './core/constants/routes';
 
 Handlebars.registerPartial('Avatar', Avatar);
 Handlebars.registerPartial('ChatFeed', ChatFeed);
-Handlebars.registerPartial('ChatBox', ChatBox);
 Handlebars.registerPartial('ChatHeader', ChatHeader);
-Handlebars.registerPartial('ChatList', ChatList);
 Handlebars.registerPartial('ChatMessage', ChatMessage);
 Handlebars.registerPartial('ChatWindow', ChatWindow);
 
@@ -43,8 +42,11 @@ registerComponent('Input', Input as typeof Block);
 registerComponent('Form', Form as typeof Block);
 registerComponent('ErrorMessage', ErrorMessage as typeof Block);
 registerComponent('FormField', FormField as typeof Block);
+registerComponent('ChatBox', ChatBox as typeof Block);
 registerComponent('ChatMessageBar', ChatMessageBar as typeof Block);
 registerComponent('ChatSearchBar', ChatSearchBar as typeof Block);
+registerComponent('ChatSideBar', ChatSideBar as typeof Block);
+registerComponent('ChatList', ChatList as typeof Block);
 registerComponent('ChatSettingsBar', ChatSettingsBar as typeof Block);
 
 document.addEventListener('DOMContentLoaded', () => {

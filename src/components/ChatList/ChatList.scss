@@ -1,0 +1,20 @@
+@import "../../../assets/styles/color-scheme";
+
+.chat-list {
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        // ЗДЕСЬ НЕ ПОЛУЧАЕТСЯ СДЕЛАТЬ, КАК ЗАДУМАНО
+        // ПО ГОРИЗОНТАЛИ ПОЯВЛЯЕТСЯ ПРОКРУТКА
+        // СОДЕРЖИМОЕ ОБРЕЗАЕТСЯ ПО КРАЯМ
+        overflow-x: visible;
+        overflow-y: scroll;
+        height: calc(100dvh - 88px);
+
+        // &::-webkit-scrollbar {
+        //     width: 0px;
+        //     height: 0px;           
+        // }
+}

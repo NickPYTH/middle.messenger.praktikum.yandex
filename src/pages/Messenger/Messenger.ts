@@ -6,10 +6,11 @@ import ChatsController from '../../controllers/ChatsController';
 
 
 interface MessengerProps extends Record<string, unknown> {
-  chats: [],
+  chats: Nullable<StringIndexed>,
   currentChat: number,
   user : number,
   messages: [],
+  isOpenDialogChat : boolean,
 };
 
 class MessengerBase extends Block<MessengerProps> {
@@ -17,12 +18,13 @@ class MessengerBase extends Block<MessengerProps> {
     super({
       ...props,
     });
+    ChatsController.getChats();
   }
 
   protected render(): DocumentFragment {
-    ChatsController.getChats();
     return this.compile(template, this.props);
   }
 }
 
-export const Messenger = withStore((state)=>({...state.chats, ...state.currentChat, ...state.user }))(MessengerBase);
+
+export const Messenger = withStore((state)=>({...state}))(MessengerBase);
