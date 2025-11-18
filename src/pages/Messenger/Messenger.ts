@@ -10,13 +10,30 @@ interface MessengerProps extends Record<string, unknown> {
   currentChat: number,
   user : number,
   messages: [],
-  isOpenDialogChat : boolean,
 }
 
 class MessengerBase extends Block<MessengerProps> {
   constructor(props: MessengerProps) {
     super({
       ...props,
+      onAddUser: () => {
+        const userLogin = this.refs.addUserDialog.getUserInput();
+        const chatId = this.props.currentChat?.id;
+        ChatsController.addUserToChat(chatId, userLogin);
+      },
+      onRemoveUser: () => {
+        const userLogin = this.refs.removeUserDialog.getUserInput();
+        const chatId = this.props.currentChat?.id;
+        ChatsController.removeUserFromChat(chatId, userLogin);
+      },
+      onCreateChat: () => {
+        const title = this.refs.createChatDialog.getChatTitle();
+        ChatsController.create(title!);
+      },
+      onDeleteChat: () => {
+        const chatId = this.props.currentChat?.id;
+        ChatsController.delete(chatId);
+      },
     });
     ChatsController.getChats();
     AuthController.getUser();

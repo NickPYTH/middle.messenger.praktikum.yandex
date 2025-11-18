@@ -30,10 +30,15 @@ class ChatsController {
     this.api.addUsers(id, [userId]);
   }
 
+  removeUserFromChat(id: number, userId: number) {
+    this.api.removeUsers(id, [userId]);
+  }
+
   async delete(id: number) {
     await this.api.delete(id);
-
     this.getChats();
+    store.set('isOpenDialogDelete', false);
+    store.set('currentChat', null);
   }
 
   getToken(id: number) {
@@ -46,8 +51,5 @@ class ChatsController {
 }
 
 const chatsController = new ChatsController();
-
-// @ts-ignore
-window.chatsController = chatsController;
 
 export default chatsController;
