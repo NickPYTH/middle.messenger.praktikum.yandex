@@ -1,8 +1,8 @@
 import template from './DialogCreateChat.hbs?raw';
 import Block from '../../core/Block';
-import './DialogCreateChat.scss';
 import store from '../../core/Store';
 import chatsController from '../../controllers/ChatsController';
+import { withStore } from '../../hocs/withStore';
 
 interface DialogCreateChatProps {
   isOpen: boolean,
@@ -11,7 +11,7 @@ interface DialogCreateChatProps {
   onClose: (event: Event) => void,
 }
 
-export class DialogCreateChat extends Block<DialogCreateChatProps> {
+export class DialogCreateChatBase extends Block<DialogCreateChatProps> {
   constructor(props: DialogCreateChatProps) {
     super({
       ...props,
@@ -48,3 +48,5 @@ export class DialogCreateChat extends Block<DialogCreateChatProps> {
     return this.compile(template, this.props);
   }
 }
+
+export const DialogCreateChat = withStore((state) => ({ isOpen: state.isOpenDialogChat }))(DialogCreateChatBase);

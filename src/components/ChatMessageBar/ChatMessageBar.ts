@@ -1,4 +1,5 @@
 import Block from '../../core/Block';
+import store from '../../core/Store';
 import template from './ChatMessageBar.hbs?raw';
 import './ChatMessageBar.scss';
 
@@ -10,6 +11,7 @@ interface ChatMessageBarProps extends Record<string, unknown> {
   onBlur: () => void,
   onSend: (event: Event) => void,
   onFocus: () => void,
+  onAttach: () => void,
   events?: {
     submit?: (event: Event) => void,
     blur?: () => void,
@@ -29,29 +31,16 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
         this.validate();
       },
 
-      onSend: (event : Event) => {
-        event.preventDefault();
-        const { name } = this.refs.messageInput.element! as HTMLInputElement;
-        const value = this.value();
-        console.info({
-          [name]: value,
-        });
-
-        if (this.validate()) {
-          this.setProps({
-            ...props,
-            value: '',
-            error: null,
-            placeholder: 'Введите сообщение...',
-          });
-        }
-      },
       onFocus: () => {
         this.refs.errorMessage.setProps({
           ...this.props,
           error: null,
         });
       },
+
+      onAttach: () => {
+        store.set('isOpenDialogUpload', true);
+      }
     });
   }
 
@@ -65,8 +54,6 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
         ...this.props,
         placeholder: '',
         events: {
-          // к описаному выше, всё работает только когда я явно передаю
-          // события сюда явно (иначе при перерендеренге они отваливаются)
           focus: this.props.onFocus,
           blur: this.props.onBlur,
         },
