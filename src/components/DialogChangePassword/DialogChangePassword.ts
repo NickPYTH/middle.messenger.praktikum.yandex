@@ -8,6 +8,7 @@ interface DialogChangePasswordProps {
   error: Nullable<string>,
   onSubmit: (event: Event) => void,
   onClose: (event: Event) => void,
+  onChange: () => void,
 }
 
 class DialogChangePasswordBase extends Block<DialogChangePasswordProps> {
@@ -18,6 +19,7 @@ class DialogChangePasswordBase extends Block<DialogChangePasswordProps> {
         event.preventDefault();
         this.closeDialog();
       },
+      onChange: () => this.compareEntries(),
     });
   }
 
@@ -25,9 +27,36 @@ class DialogChangePasswordBase extends Block<DialogChangePasswordProps> {
     store.set('isOpenDialogPassword', false);
   }
 
+  public compareEntries() {
+    const newPassword = this.refs.newPassword.value();
+    const newPasswordConfirm = this.refs.newPasswordConfirm.value();
+
+    if (newPassword && newPasswordConfirm && newPassword !== newPasswordConfirm) {
+      this.refs.errorMessage.setProps({
+        ...this.props,
+        error: 'Пароли не совпадают',
+      });
+    } else {
+      this.refs.errorMessage.setProps({
+        ...this.props,
+        error: null,
+      });
+    }
+  }
+
+  public getPasswords() {
+    const oldPassword = this.refs.oldPassword.value();
+    const newPassword = this.refs.newPassword.value();
+
+    return {
+      oldPassword,
+      newPassword,
+    };
+  }
+
   render() {
     return this.compile(template, this.props);
   }
 }
 
-export const DialogChangePassword = withStore((state) => ({ isOpen : state.isOpenDialogPassword }))(DialogChangePasswordBase)
+export const DialogChangePassword = withStore((state) => ({ isOpen: state.isOpenDialogPassword }))(DialogChangePasswordBase);

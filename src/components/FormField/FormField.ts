@@ -4,10 +4,11 @@ import './FormField.scss';
 import { VALIDATION_RULES, VALIDATION_ERRORS } from '../../core/constants/validation';
 
 interface FormFieldProps {
-  name : string;
-  value : string;
-  error : string | null;
-  onBlur?: () => void;
+  name : string,
+  value : string,
+  error : string | null,
+  isActive: boolean,
+  onChange?: () => void,
 }
 
 export class FormField extends Block<FormFieldProps|any> {
@@ -15,7 +16,7 @@ export class FormField extends Block<FormFieldProps|any> {
     super({
       ...props,
       error: null,
-      onBlur: () => this.validate(),
+      onChange: () => this.validate(),
     });
   }
 

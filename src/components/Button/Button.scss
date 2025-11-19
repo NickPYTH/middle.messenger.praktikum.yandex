@@ -30,5 +30,13 @@
         transition: 0.25s;
     }
 
+    &:disabled {
+        background: $base-shadow;
 
+        &:hover {
+            scale: 1;
+            opacity: 1;
+            cursor: not-allowed;
+        }
+    }
 }

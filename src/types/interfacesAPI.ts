@@ -5,7 +5,7 @@ export interface User {
         display_name: string,
         phone: string,
         login: string,
-        avatar: string,
+        avatar: string|null,
         email: string
 }
 
@@ -33,8 +33,10 @@ export interface Message {
     chat_id: number;
     time: string;
     type: string;
+    id: string;
     user_id: number;
     content: string;
+    is_read: boolean;
     file?: {
       id: number;
       user_id: number;
@@ -45,3 +47,8 @@ export interface Message {
       upload_date: string;
     }
   }
+
+export interface ChangePasswordRequestData {
+    oldPassword : string,
+    newPassword : string,
+}
