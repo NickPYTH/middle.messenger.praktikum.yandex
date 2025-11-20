@@ -1,5 +1,6 @@
-import API, { UserAPI } from '../api/UserApi';
+import API, { UserAPI } from '../api/UserAPI';
 import { User, ChangePasswordRequestData } from '../types/interfacesAPI';
+import Store from '../core/Store';
 
 class UserController {
   private readonly api : UserAPI;
@@ -10,7 +11,7 @@ class UserController {
 
   public updateProfile = (data: User) => this.api.updateProfile(data);
 
-  public updateAvatar = (data: FormData) => this.api.updateAvatar(data);
+  public updateAvatar = (data: FormData) => this.api.updateAvatar(data).catch((error) => Store.set('error', error));
 
   public updatePassword = (data: ChangePasswordRequestData) => this.api.updatePassword(data);
 }

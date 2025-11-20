@@ -3,7 +3,7 @@ import store from '../../core/Store';
 import template from './ChatHeader.hbs?raw';
 import './ChatHeader.scss';
 
-interface ChatHeaderProps {
+interface ChatHeaderProps extends StringIndexed {
   title: string,
   onAddUser: () => void,
   onDeleteChat: () => void,
@@ -15,12 +15,15 @@ export class ChatHeader extends Block<ChatHeaderProps> {
     super({
       ...props,
       onAddUser: () => {
+        store.nullifyError(),
         store.set('isOpenDialogAddUser', true);
       },
       onDeleteChat: () => {
+        store.nullifyError(),
         store.set('isOpenDialogDelete', true);
       },
       onRemoveUser: () => {
+        store.nullifyError(),
         store.set('isOpenDialogRemoveUser', true);
       },
     });

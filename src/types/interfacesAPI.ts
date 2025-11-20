@@ -1,4 +1,4 @@
-export interface User {
+export interface User extends StringIndexed {
         id: number,
         first_name: string,
         second_name: string,
@@ -17,8 +17,10 @@ export interface Chat {
     created_by: number,
     last_message: {
         user: {
+            id: number,
             first_name: string,
             second_name: string,
+            display_name: string,
             avatar: string,
             email: string,
             login: string,
@@ -51,4 +53,12 @@ export interface Message {
 export interface ChangePasswordRequestData {
     oldPassword : string,
     newPassword : string,
+}
+
+export interface RequestOptions {
+    method?: string;
+    data?: any;
+    headers?: { [key: string]: string };
+    timeout?: number;
+    retries?: number;
 }

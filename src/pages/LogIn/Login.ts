@@ -5,7 +5,11 @@ import router from '../../core/Router';
 import AuthController from '../../controllers/AuthController';
 import routes from '../../core/constants/routes';
 
-type LoginProps = Record<string, unknown>;
+interface LoginProps extends StringIndexed{
+  error: string,
+  onLogin: (event: Event) => void;
+  onSwitch: (event: Event) => void;
+}
 
 export class Login extends Block<LoginProps> {
   constructor(props: LoginProps) {
@@ -16,11 +20,6 @@ export class Login extends Block<LoginProps> {
         event.preventDefault();
         const login = this.refs.login.value()!;
         const password = this.refs.password.value()!;
-
-        console.table({
-          login,
-          password,
-        });
 
         AuthController.login({
           login,

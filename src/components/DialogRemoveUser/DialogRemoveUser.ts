@@ -3,7 +3,7 @@ import Block from '../../core/Block';
 import store from '../../core/Store';
 import { withStore } from '../../hocs/withStore';
 
-interface DialogRemoveUserProps {
+interface DialogRemoveUserProps extends StringIndexed {
   isOpen: boolean,
   error: Nullable<string>,
   onClose: (event: Event) => void,
@@ -15,25 +15,19 @@ class DialogRemoveUserBase extends Block<DialogRemoveUserProps> {
       ...props,
       onClose: (event) => {
         event.preventDefault();
+        store.set('error', null);
         this.closeDialog();
       },
     });
   }
 
   public closeDialog() {
+    store.nullifyError(),
     store.set('isOpenDialogRemoveUser', false);
   }
 
   public getUserInput() {
     return this.refs.removeUserID.value();
-  }
-
-  // TODO Не работает, выкидывает ошибку только в консоли
-  public setError(error: string) {
-    this.refs.errorLine.setProps({
-      ...this.refs.errorLine.props,
-      error,
-    });
   }
 
   render() {

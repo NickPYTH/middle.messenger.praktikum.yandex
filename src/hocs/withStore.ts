@@ -1,27 +1,21 @@
-import store, { StoreEvents } from '../core/Store';
-import { User } from '../api/AuthAPI';
+import store, { StoreEvents, State } from '../core/Store';
 import Block from '../core/Block';
 import isEqual from '../core/utils/isEqual';
 
-interface State {
-    user: User;
-}
-
-export function withStore(mapStateToProps: (state: State) => Partial<State>) {
-  return function<P extends object, R extends StringIndexed> (Component: typeof Block<P, R>) {
-    return class extends Component<PageTransitionEvent, R> {
+export function withStore<SP extends StringIndexed|State>(mapStateToProps: (state: State) => Partial<State>) {
+  return function<P extends StringIndexed & SP> (Component: typeof Block<P>) {
+    return class extends Component {
       public onChangeStoreCallback: () => void;
 
       constructor(props: P) {
-        // const store = window.store;
         let state = mapStateToProps(store.getState());
 
-        super({ ...props, ...state });
+        super({ ...(props as P), ...state });
 
         this.onChangeStoreCallback = () => {
           const newState = mapStateToProps(store.getState());
           if (!isEqual(state, newState)) {
-            this.setProps({ ...newState });
+            (this as Block<P&SP>).setProps({ ...newState as P&SP });
           }
 
           state = newState;

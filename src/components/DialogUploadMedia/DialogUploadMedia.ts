@@ -1,7 +1,6 @@
 import template from './DialogUploadMedia.hbs?raw';
 import Block from '../../core/Block';
 import store from '../../core/Store';
-import chatsController from '../../controllers/ChatsController';
 import { withStore } from '../../hocs/withStore';
 
 interface DialogUploadMediaProps {
@@ -24,21 +23,14 @@ class DialogUploadMediaBase extends Block<DialogUploadMediaProps> {
   }
 
   public closeDialog() {
+    store.nullifyError();
+    store.resetFile();
     store.set('isOpenDialogUpload', false);
-    store.set('file', null);
   }
 
   public getFile() {
     return this.refs.fileInput.getFile();
   }
-
-  // TODO Не работает, выкидывает ошибку только в консоли
-  // public setError(error: string) {
-  //   this.refs.errorLine.setProps({
-  //     ...this.refs.errorLine.props,
-  //     error,
-  //   });
-  // }
 
   render() {
     return this.compile(template, this.props);

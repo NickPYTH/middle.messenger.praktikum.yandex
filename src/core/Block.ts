@@ -2,11 +2,32 @@ import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 import { EventBus } from './EventBus';
 
-export default class Block<P extends Record<string, unknown>> {
+export default class Block<P extends StringIndexed> {
+  getPasswords() {
+    throw new Error('Method not implemented.');
+  }
+
+  closeDialog() {
+    throw new Error('Method not implemented.');
+  }
+
+  getFile() {
+    throw new Error('Method not implemented.');
+  }
+
+  getChatTitle() {
+    throw new Error('Method not implemented.');
+  }
+
+  getUserInput() {
+    throw new Error('Method not implemented.');
+  }
+
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
     FLOW_CDU: 'flow:component-did-update',
+    FLOW_CWU: 'flow:component-will-unmount',
     FLOW_RENDER: 'flow:render',
   } as const;
 
@@ -124,6 +145,10 @@ export default class Block<P extends Record<string, unknown>> {
 
   protected componentDidMount(props?: P): void {
     this.setProps(props as P);
+  }
+
+  protected componentWillUnmount(): void {
+    this.eventBus().emit(Block.EVENTS.FLOW_CWU);
   }
 
   protected componentDidUpdate(oldProps?: P, newProps?: P): boolean {

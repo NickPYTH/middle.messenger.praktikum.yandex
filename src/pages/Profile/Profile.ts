@@ -3,7 +3,7 @@ import './Profile.scss';
 import template from './profile.hbs?raw';
 import { withStore } from '../../hocs/withStore';
 import AuthController from '../../controllers/AuthController';
-import { User } from '../../api/AuthAPI';
+import { ChangePasswordRequestData, User } from '../../types/interfacesAPI';
 import router from '../../core/Router';
 import routes from '../../core/constants/routes';
 import store from '../../core/Store';
@@ -11,7 +11,7 @@ import UserController from '../../controllers/UserController';
 
 interface ProfileProps extends User {
   isEditable: boolean,
-  onUploadAvatar : () => void,
+  onUploadAvatar : (event: Event) => void,
   onChangeAvatar : (event: Event) => void,
   onEditProfile : (event : Event) => void,
   onSaveChanges : (event : Event) => void,
@@ -48,8 +48,13 @@ export class ProfilePageBase extends Block<ProfileProps> {
       onSubmitNewPassword: (event) => {
         event.preventDefault();
         const passwords = this.refs.dialogChangePassword.getPasswords();
-        UserController.updatePassword(passwords);
-        store.set('isOpenDialogPassword', false);
+        UserController.updatePassword(passwords as unknown as ChangePasswordRequestData)
+          .catch((error) => store.set('error', error))
+          .finally(() => {
+            if (!store.getState().error) {
+              store.set('isOpenDialogPassword', false);
+            }
+          });
       },
       onEditProfile: (event) => {
         event.preventDefault();
@@ -60,24 +65,31 @@ export class ProfilePageBase extends Block<ProfileProps> {
       },
       onSaveChanges: (event) => {
         event.preventDefault();
-        const form: User = {};
+        const form: {[key: string]: unknown} = {};
         const keys = Object.keys(this.refs);
         keys.forEach((key) => {
           form[key] = this.refs[key].value();
         });
-        UserController.updateProfile(form)
+        UserController.updateProfile(form as User)
           .then(() => AuthController.getUser())
-          .then(() => this.setProps({
+          .finally(() => this.setProps({
             ...props,
             isEditable: false,
           }));
       },
-      onUploadAvatar: () => {
+      onUploadAvatar: (event: Event) => {
+        event.preventDefault();
         const { file } = store.getState();
         const data = new FormData();
         data.append('avatar', file);
-        UserController.updateAvatar(data).then(() => AuthController.getUser());
-        this.refs.dialogUploadAvatar.closeDialog();
+        UserController.updateAvatar(data)
+          .catch((error) => store.set('error', error))
+          .finally(() => {
+            if (!store.getState().error) {
+              store.set('isOpenDialogUpload', false);
+              AuthController.getUser();
+            }
+          });
       },
     });
     AuthController.getUser();
@@ -88,6 +100,6 @@ export class ProfilePageBase extends Block<ProfileProps> {
   }
 }
 
-const withUser = withStore((state) => ({ ...state.user }));
+const withUser = withStore((state) => ({ user: state.user }));
 
 export const Profile = withUser(ProfilePageBase);

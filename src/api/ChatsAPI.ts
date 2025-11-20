@@ -1,4 +1,9 @@
 import BaseAPI from './BaseAPI';
+import Store from '../core/Store';
+
+interface GetTokenHttpResponse extends XMLHttpRequest {
+  token: string,
+}
 
 export class ChatsAPI extends BaseAPI {
   constructor() {
@@ -19,7 +24,7 @@ export class ChatsAPI extends BaseAPI {
 
   public getToken = async (id: number) => {
     const response = await this.http.post(`/token/${id}`);
-    return response.token;
+    return (response as GetTokenHttpResponse).token;
   };
 
   update = undefined;

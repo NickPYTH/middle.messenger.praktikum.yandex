@@ -23,6 +23,7 @@ export class DialogDeleteChatBase extends Block<DialogDeleteChatProps> {
       },
       onClose: (event) => {
         event.preventDefault();
+        store.set('error', null);
         this.closeDialog();
       },
     });
@@ -39,7 +40,7 @@ export class DialogDeleteChatBase extends Block<DialogDeleteChatProps> {
   // TODO Не работает, выкидывает ошибку только в консоли
   public setError(error: string) {
     this.refs.errorLine.setProps({
-      ...this.refs.errorLine.props,
+      ...this.props,
       error,
     });
   }

@@ -13,28 +13,32 @@ class AuthController {
   }
 
   public async login(data : LoginData) {
+    store.set('error', null);
     try {
       await this.api.login(data);
       await this.getUser();
       router.go(routes.Profile);
     } catch (error) {
       console.error(error);
+      store.set('error', error);
     }
   }
 
   public async register(data : RegisterData) {
+    store.set('error', null);
     try {
       await this.api.register(data);
       await this.getUser();
       router.go(routes.Profile);
     } catch (error) {
       console.error(error);
+      store.set('error', error);
     }
   }
 
   public async getUser() {
-    const user : User = await this.api.read();
-    store.set('user', transformUserFromApi(user));
+    const user = await this.api.read();
+    store.set('user', transformUserFromApi(user as unknown as User));
   }
 
   public async logout() {
